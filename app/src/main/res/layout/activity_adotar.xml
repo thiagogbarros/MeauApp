@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <fragment
-        android:id="@+id/topFragment"
+        android:id="@+id/topBar"
         class="com.example.meauapp.TopFragment"
         android:layout_width="414dp"
         android:layout_height="59dp"

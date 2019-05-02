@@ -9,52 +9,47 @@
     <View
         android:id="@+id/topBar"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@drawable/top_bar"
+        android:layout_height="56dp"
+        android:background="@drawable/top_bar_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/topTitle"
+        android:id="@+id/nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:text="Adotar"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:text="Bidu"
         android:textColor="#434343"
         android:textSize="20sp"
         app:fontFamily="@font/roboto_medium"
         app:layout_constraintBottom_toBottomOf="@+id/topBar"
-        app:layout_constraintStart_toEndOf="@+id/menu"
-        app:layout_constraintTop_toTopOf="@+id/topBar" />
-
-    <ImageView
-        android:id="@+id/menu"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:tint="#434343"
-        app:layout_constraintBottom_toBottomOf="@+id/topBar"
         app:layout_constraintStart_toStartOf="@+id/topBar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/menu_icon" />
+        app:layout_constraintTop_toTopOf="@+id/topBar"
+        app:layout_constraintVertical_bias="0.551" />
 
     <ImageView
-        android:id="@+id/buscar"
+        android:id="@+id/coracao"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
-        android:layout_marginBottom="8dp"
         android:tint="#434343"
         app:layout_constraintBottom_toBottomOf="@+id/topBar"
         app:layout_constraintEnd_toEndOf="@+id/topBar"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_search_category_default" />
+        app:srcCompat="@drawable/heart_icon" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="684dp"
+        android:layout_height="272dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar"
+        app:srcCompat="@drawable/dog_pic" />
 
 </android.support.constraint.ConstraintLayout>
