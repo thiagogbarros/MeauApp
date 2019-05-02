@@ -8,9 +8,22 @@
 
     <fragment
         android:id="@+id/topFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         class="com.example.meauapp.TopFragment"
-        tools:layout="@layout/top_fragment"/>
+        android:layout_width="414dp"
+        android:layout_height="59dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/top_fragment" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

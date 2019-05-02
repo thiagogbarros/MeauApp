@@ -15,4 +15,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/topTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:text="Adotar"
+        android:textColor="#434343"
+        android:textSize="20sp"
+        app:fontFamily="@font/roboto_medium"
+        app:layout_constraintBottom_toBottomOf="@+id/topFragment"
+        app:layout_constraintStart_toEndOf="@+id/menu"
+        app:layout_constraintTop_toTopOf="@+id/topFragment" />
+
+    <ImageView
+        android:id="@+id/menu"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:tint="#434343"
+        app:layout_constraintBottom_toBottomOf="@+id/topFragment"
+        app:layout_constraintStart_toStartOf="@+id/topFragment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu_icon" />
+
+    <ImageView
+        android:id="@+id/buscar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="8dp"
+        android:tint="#434343"
+        app:layout_constraintBottom_toBottomOf="@+id/topFragment"
+        app:layout_constraintEnd_toEndOf="@+id/topFragment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_search_category_default" />
+
 </android.support.constraint.ConstraintLayout>
