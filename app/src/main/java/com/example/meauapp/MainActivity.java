@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent i=new Intent(MainActivity.this,
-                        SecondActivity.class);
+                        Introducao.class);
                 //Intent is used to switch from one activity to another.
 
                 startActivity(i);
@@ -37,4 +37,4 @@ public class MainActivity extends AppCompatActivity {
         }, SPLASH_SCREEN_TIME_OUT);
     }
 }
-}
+
