@@ -11,4 +11,5 @@ public class AdotarCardAnimal extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_adotar_card, container, false);
     }
+
 }

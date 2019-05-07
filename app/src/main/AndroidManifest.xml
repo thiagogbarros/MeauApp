@@ -19,8 +19,11 @@
         <activity android:name=".Introducao">
 
         </activity>
-        <activity android:name=".Adotar">
-
+        <activity android:name=".Adotar"
+            android:parentActivityName=".Introducao">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.meauapp.Introducao" />
         </activity>
 
         <meta-data
