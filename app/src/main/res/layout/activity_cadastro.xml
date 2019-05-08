@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Cadastro">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#CFE9E5"
+                android:text="Cadastro Pessoal"
+                app:fontFamily="@font/roboto"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme">
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cadastro Pessoal"
+                android:textColor="#434343"
+                app:fontFamily="@font/roboto"
+                android:textSize="20dp" />
+            </android.support.v7.widget.Toolbar>
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar7"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:layout_margin="6dp"
+                android:background="#CFE9E5"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    app:fontFamily="@font/roboto"
+                    android:text="As informações preenchidas serão divulgadas apenas para a pessoa com a qual você realizar o processo de adoção e/ou apadrinhamento, após a formalização do processo. "
+                    android:textColor="#434343"
+                    android:textSize="14dp" />
+
+
+            </android.support.v7.widget.Toolbar>
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Informações Pessoais"
+                android:textColor="#88C9BF"
+                android:layout_margin="10dp"
+                app:fontFamily="@font/roboto"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/Nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="Nome Completo"
+                android:inputType="textPersonName"
+                android:textColor="#bdbdbd"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/Idade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="Idade"
+                android:inputType="number"
+                android:textColor="#bdbdbd"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"
+                android:textColor="#bdbdbd"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/Estado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="Estado"
+                android:inputType="textPersonName"
+                android:textColor="#bdbdbd"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/Cidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="Cidade"
+                android:inputType="textPersonName"
+                android:textColor="#bdbdbd"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/Endereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="Endereço"
+                android:inputType="textPersonName"
+                android:textColor="#bdbdbd"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/Telefone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="Telefone"
+                android:inputType="number"
+                android:textColor="#bdbdbd"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Informações de Perfil"
+                android:textColor="#88C9BF"
+                android:layout_margin="10dp"
+                android:textSize="20dp" />
+            <EditText
+                android:id="@+id/Nome_Usuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="Nome de usuário"
+                android:inputType="textPersonName"
+                android:textColor="#bdbdbd"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/Senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:textColor="#bdbdbd"
+                android:layout_margin="10dp"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/Confirmacao_Senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Confirmação de senha"
+                android:inputType="textPassword"
+                android:layout_margin="10dp"
+                android:textColor="#bdbdbd"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Foto de Perfil"
+                android:textColor="#88C9BF"
+                android:layout_margin="10dp"
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/FotodePerfil"
+                    style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:layout_weight="0"
+                    android:background="#e6e7e7"
+                    android:gravity="center"
+                    android:text="Adicionar foto de perfil"
+                    android:textColor="#434343"
+                    android:textSize="12dp"
+                    app:fontFamily="@font/roboto" /></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <Button
+                android:id="@+id/FazerCadastro"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:background="#88C9BF"
+                    android:layout_weight="0"
+                android:text="Fazer Cadastro"
+                    app:fontFamily="@font/roboto"
+                android:textColor="#434343"
+                android:gravity="center"
+                android:textSize="12dp" /></LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
+
