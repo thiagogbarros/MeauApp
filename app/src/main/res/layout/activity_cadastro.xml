@@ -202,7 +202,6 @@
                 android:layout_height="120dp"
                 android:orientation="horizontal"
                 android:gravity="center">
-
                 <Button
                     android:id="@+id/FotodePerfil"
                     style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
