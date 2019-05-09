@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "604794011828",
+    "firebase_url": "https://meauapp-3f512.firebaseio.com",
+    "project_id": "meauapp-3f512",
+    "storage_bucket": "meauapp-3f512.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604794011828:android:e58c27919fdabe77",
+        "android_client_info": {
+          "package_name": "com.example.meauapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604794011828-6lr62n5uc716akpq1gn13uf5a692rg27.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.meauapp",
+            "certificate_hash": "c60a059ac229fe98b8ec04ab771e41314475d53a"
+          }
+        },
+        {
+          "client_id": "604794011828-33jj4viknhgki9hub1dmnvhdi3ds0sgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt2VkkvbA1WwnuTJsWjdBK2Jd_gJbgGIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "604794011828-33jj4viknhgki9hub1dmnvhdi3ds0sgg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
