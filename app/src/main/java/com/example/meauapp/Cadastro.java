@@ -6,18 +6,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.storage.FirebaseStorage;
 
 
 public class Cadastro extends AppCompatActivity {
     private EditText Nome, Idade, Email, Estado, Cidade, Endereco, Telefone, Nome_Usuario, Senha, Confirmacao_Senha;
     private Button Fazer_Cadastro,Foto_perfil;
-    private DatabaseReference reff;
+    //private DatabaseReference reff;
     private Member member;
     private static final int GALLERY_REQUEST_CODE = 1;
-    private FirebaseStorage storage;
+    //private FirebaseStorage storage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,10 @@ public class Cadastro extends AppCompatActivity {
         final StorageReference reff2 = storage.getReference();*/
 
         //Data base para os dados
-        reff = FirebaseDatabase.getInstance().getReference().child("Member");
+
+
+
+        //reff = FirebaseDatabase.getInstance().getReference().child("Member");
 
         member = new Member();
         Fazer_Cadastro.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +69,9 @@ public class Cadastro extends AppCompatActivity {
                 member.setSenha(Senha.getText().toString().trim());
                 member.setConfirmacao_Senha(Confirmacao_Senha.getText().toString().trim());
 
-                reff.push().setValue(member);
+                //reff.push().setValue(member);
+
+
                 /*Uri file = Uri.fromFile(new File(Foto));
                 StorageReference riversRef = reff2.child("FotosPerfil/");
                 UploadTask uploadTask = riversRef.putFile(file);

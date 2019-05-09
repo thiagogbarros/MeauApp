@@ -10,7 +10,7 @@
     <fragment
         android:id="@+id/topBar"
         class="com.example.meauapp.TopFragment"
-        android:layout_width="414dp"
+        android:layout_width="0dp"
         android:layout_height="59dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

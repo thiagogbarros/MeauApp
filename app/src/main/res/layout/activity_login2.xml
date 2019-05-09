@@ -10,16 +10,14 @@
         android:id="@+id/toolbar3"
         android:layout_width="411dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="675dp"
         android:background="#CFE9E5"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/textView0"
             android:layout_width="wrap_content"
@@ -31,26 +29,19 @@
             android:textColor="#434343"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-             />
+            app:layout_constraintStart_toStartOf="parent" />
     </android.support.v7.widget.Toolbar>
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="170dp"
-        android:layout_marginLeft="170dp"
         android:layout_marginTop="54dp"
-        android:layout_marginEnd="167dp"
-        android:layout_marginRight="167dp"
-        android:layout_marginBottom="592dp"
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
         android:textColorHint="#bdbdbd"
         android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar3" />
@@ -59,32 +50,25 @@
         android:id="@+id/editText2"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginBottom="536dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
         android:textColorHint="#bdbdbd"
         android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toTopOf="@+id/editText" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="240dp"
         android:layout_height="50dp"
         android:layout_marginTop="52dp"
-        android:layout_marginBottom="447dp"
+        android:background="#88C9BF"
         android:text="Entrar"
         android:textColor="#434343"
         android:textSize="12dp"
-        android:background="#88C9BF"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
