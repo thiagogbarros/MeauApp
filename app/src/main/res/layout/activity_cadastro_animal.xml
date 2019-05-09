@@ -65,9 +65,9 @@
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
-                    android:text="ToggleButton"
-                    android:textOff="Adotar"
                     android:background="#bdbdbd"
+                    android:text="ToggleButton"
+                    android:textOff="Adoção"
                     android:textOn="Adoção" />
 
                 <ToggleButton
@@ -145,7 +145,7 @@
                 android:gravity="center">
 
                 <Button
-                    android:id="@+id/FotodePerfil"
+                    android:id="@+id/FotodoAnimal"
                     style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
                     android:layout_width="312dp"
                     android:layout_height="128dp"
@@ -170,23 +170,29 @@
                 app:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:textSize="16dp" />
+
             <LinearLayout
                 android:layout_width="240dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="16dp" >
-                <RadioButton
-                    android:id="@+id/Cachorro"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cachorro"/>
-                <RadioButton
-                    android:id="@+id/Gato"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Gato"/>
+                <RadioGroup
+                    android:id="@+id/Especie1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/Cachorro"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Cachorro"/>
+                    <RadioButton
+                        android:id="@+id/Gato"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Gato"/></RadioGroup>
             </LinearLayout>
             <TextView
                 android:id="@+id/Sexo"
@@ -205,18 +211,23 @@
                 android:layout_marginLeft="24dp"
                 android:orientation="horizontal"
                 android:layout_marginTop="16dp" >
-                <RadioButton
-                    android:id="@+id/Macho"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Macho"/>
-                <RadioButton
-                    android:id="@+id/Femea"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Fêmea"
-                    android:layout_weight="1"/>
+                <RadioGroup
+                    android:id="@+id/Sexo1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/Macho"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Macho"/>
+                    <RadioButton
+                        android:id="@+id/Femea"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Fêmea"
+                        android:layout_weight="1"/></RadioGroup>
             </LinearLayout>
             <TextView
                 android:id="@+id/Porte"
@@ -235,25 +246,30 @@
                 android:layout_marginLeft="24dp"
                 android:orientation="horizontal"
                 android:layout_marginTop="16dp" >
-                <RadioButton
-                    android:id="@+id/Pequeno"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Pequeno"/>
+                <RadioGroup
+                    android:id="@+id/Porte1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/Pequeno"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Pequeno"/>
 
-                <RadioButton
-                    android:id="@+id/Medio"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Médio" />
-                <RadioButton
-                    android:id="@+id/Grande"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Grande"/>
+                    <RadioButton
+                        android:id="@+id/Medio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Médio" />
+                    <RadioButton
+                        android:id="@+id/Grande"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Grande"/></RadioGroup>
             </LinearLayout>
             <TextView
                 android:id="@+id/Idade"
@@ -273,27 +289,31 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal">
+                <RadioGroup
+                    android:id="@+id/Idade1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/Filhote"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Filhote" />
 
-                <RadioButton
-                    android:id="@+id/Filhote"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Filhote" />
+                    <RadioButton
+                        android:id="@+id/Adulto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Adulto" />
 
-                <RadioButton
-                    android:id="@+id/Adulto"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Adulto" />
-
-                <RadioButton
-                    android:id="@+id/Idoso"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Idoso" />
+                    <RadioButton
+                        android:id="@+id/Idoso"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Idoso" /></RadioGroup>
             </LinearLayout>
             <TextView
                 android:id="@+id/temperamento"
@@ -469,7 +489,7 @@
                     android:layout_marginLeft="60dp"
                     android:text="1 mês" />
                 <CheckBox
-                    android:id="@+id/tesmeses"
+                    android:id="@+id/tresmeses"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -506,23 +526,23 @@
                 android:inputType="textPersonName"
                 android:textColorHint="#bdbdbd"
                 android:textSize="12dp" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:orientation="horizontal"
-            android:gravity="center">
-            <Button
-                android:id="@+id/FazerCadastro"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="240dp"
-                android:layout_height="wrap_content"
-                android:background="#ffd358"
-                android:layout_weight="0"
-                android:text="Colocar para adoção"
-                app:fontFamily="@font/roboto"
-                android:textColor="#434343"
-                android:gravity="center"
-                android:textSize="12dp" /></LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <Button
+                    android:id="@+id/FazerCadastro"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:background="#ffd358"
+                    android:layout_weight="0"
+                    android:text="Colocar para adoção"
+                    app:fontFamily="@font/roboto"
+                    android:textColor="#434343"
+                    android:gravity="center"
+                    android:textSize="12dp" /></LinearLayout>
         </LinearLayout>
     </ScrollView>
 
