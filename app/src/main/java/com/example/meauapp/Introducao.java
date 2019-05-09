@@ -10,14 +10,20 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class Introducao extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introducao);
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+
 
             Button buttonAdotar = (Button) findViewById(R.id.btn_adotar);
             buttonAdotar.setOnClickListener(new View.OnClickListener() {
@@ -26,14 +32,14 @@ public class Introducao extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        TextView buttonLogin = (TextView) findViewById(R.id.login);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view){
-                Intent login = new Intent(Introducao.this,Login2.class);
-                startActivity(login);
-            }
-        });
         }
-
+    public void AcLogin2 (View view){
+        Intent Login2 = new Intent(this, Login2.class);
+        startActivity(Login2);
+    }
+    public void AcCadastroAnimal (View view){
+        Intent CadastroAnimal = new Intent(this, CadastroAnimal.class);
+        startActivity(CadastroAnimal);
+    }
 
 }

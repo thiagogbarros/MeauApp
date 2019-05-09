@@ -1,21 +1,39 @@
 package com.example.meauapp;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.Toast;
 //import com.google.firebase.database.DatabaseReference;
 //import com.google.firebase.database.FirebaseDatabase;
 //import com.google.firebase.storage.FirebaseStorage;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 
 
 public class Cadastro extends AppCompatActivity {
     private EditText Nome, Idade, Email, Estado, Cidade, Endereco, Telefone, Nome_Usuario, Senha, Confirmacao_Senha;
     private Button Fazer_Cadastro,Foto_perfil;
-    //private DatabaseReference reff;
+    private DatabaseReference reff;
+    private FirebaseAuth mAuth;
     private Member member;
+    private String email,senha,csenha;
     private static final int GALLERY_REQUEST_CODE = 1;
     //private FirebaseStorage storage;
 
@@ -37,26 +55,28 @@ public class Cadastro extends AppCompatActivity {
         final Button Foto_Perfil = (Button)findViewById(R.id.FotodePerfil);
 
         //Pegando foto de perfil
-        /*Foto_Perfil.setOnClickListener(new View.OnClickListener() {
+        Foto_Perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 pickFromGallery();
             }
         });
         //Banco para armazenar Foto
-        storage = FirebaseStorage.getInstance();
-        final StorageReference reff2 = storage.getReference();*/
+        //storage = FirebaseStorage.getInstance();
+        //final StorageReference reff2 = storage.getReference();*/
 
         //Data base para os dados
 
 
-
-        //reff = FirebaseDatabase.getInstance().getReference().child("Member");
-
+        reff = FirebaseDatabase.getInstance().getReference().child("Member");
+        mAuth = FirebaseAuth.getInstance();
         member = new Member();
         Fazer_Cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String email = Email.getText().toString().trim();
+                String senha = Senha.getText().toString().trim();
+                String csenha = Confirmacao_Senha.getText().toString().trim();
                 int age= Integer.parseInt(Idade.getText().toString().trim());
                 member.setNome(Nome.getText().toString().trim());
                 member.setIdade(age);
@@ -87,12 +107,22 @@ public class Cadastro extends AppCompatActivity {
                         // ...
                     }
                 });*/
+                cadastro(email,senha);
 
-                //Toast.makeText(datainsert.this, text="Dados inseridos com sucesso", Toast:L);
+                reff.push().setValue(member);
+
+                Context context = getApplicationContext();
+                CharSequence text = "Cadastro feito com sucesso!";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+
+                finish();
+
             }
         });
     }
-    /*private void pickFromGallery(){
+    private void pickFromGallery(){
         //Create an Intent with action as ACTION_PICK
         Intent intent=new Intent(Intent.ACTION_PICK);
         // Sets the type as image/*. This ensures only components of type image are selected
@@ -103,7 +133,7 @@ public class Cadastro extends AppCompatActivity {
         // Launching the Intent
         startActivityForResult(intent,GALLERY_REQUEST_CODE);
     }
-    public void onActivityResult(int requestCode,int resultCode,Intent data){
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
         // Result code is RESULT_OK only if the user selects an Image
         if (resultCode == Activity.RESULT_OK)
             switch (requestCode){
@@ -119,11 +149,31 @@ public class Cadastro extends AppCompatActivity {
                     int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                     String picturePath = cursor.getString(columnIndex);
                     cursor.close();
-                    Foto = picturePath;
                     break;
             }
 
-    }*/
+    }
+    public void cadastro(String email,String senha){
+        mAuth.createUserWithEmailAndPassword(email, senha)
+                .addOnCompleteListener(Cadastro.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+
+                        } else {
+                            Context context = getApplicationContext();
+                            CharSequence text = "Cadastro falhou!";
+                            int duration = Toast.LENGTH_LONG;
+
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.show();
+                            return;
+                        }
+
+                    }
+                });
+    }
 
 
 }
