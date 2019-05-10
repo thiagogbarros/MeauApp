@@ -9,6 +9,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.ActionCodeSettings;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
+import com.google.firebase.auth.FacebookAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthSettings;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GithubAuthProvider;
+import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.auth.PlayGamesAuthProvider;
+import com.google.firebase.auth.SignInMethodQueryResult;
+import com.google.firebase.auth.UserInfo;
+import com.google.firebase.auth.UserProfileChangeRequest;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -22,13 +40,18 @@ public class Introducao extends AppCompatActivity {
         setContentView(R.layout.activity_introducao);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-
+        final FirebaseUser user = mAuth.getCurrentUser();
 
             Button buttonAdotar = (Button) findViewById(R.id.btn_adotar);
             buttonAdotar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
-                Intent intent = new Intent(Introducao.this,Adotar.class);
-                startActivity(intent);
+                if(user != null){
+                    Intent intent = new Intent(Introducao.this,Adotar.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(Introducao.this,Login.class);
+                    startActivity(intent);
+                }
             }
         });
         }
