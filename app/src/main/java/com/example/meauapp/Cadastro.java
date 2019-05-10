@@ -18,6 +18,8 @@ import android.widget.Toast;
 //import com.google.firebase.database.FirebaseDatabase;
 //import com.google.firebase.storage.FirebaseStorage;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +27,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 
 
 public class Cadastro extends AppCompatActivity {
@@ -35,6 +42,7 @@ public class Cadastro extends AppCompatActivity {
     private Member member;
     private String email,senha,csenha;
     private static final int GALLERY_REQUEST_CODE = 1;
+    public  Uri image;
     //private FirebaseStorage storage;
 
     @Override
@@ -108,8 +116,8 @@ public class Cadastro extends AppCompatActivity {
                     }
                 });*/
                 cadastro(email,senha);
-
                 reff.push().setValue(member);
+                includesForUploadFiles(image);
 
                 Context context = getApplicationContext();
                 CharSequence text = "Cadastro feito com sucesso!";
@@ -119,6 +127,30 @@ public class Cadastro extends AppCompatActivity {
 
                 finish();
 
+            }
+        });
+    }
+    public void includesForUploadFiles(Uri file){
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+
+        // [START upload_create_reference]
+        // Create a storage reference from our app
+        StorageReference storageRef = storage.getReference();
+        //Uri file = Uri.fromFile(new File("path/to/images/rivers.jpg"));
+        StorageReference riversRef = storageRef.child("images/"+file.getLastPathSegment());
+        UploadTask uploadTask = riversRef.putFile(file);
+
+        // Register observers to listen for when the download is done or if it fails
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                // ...
             }
         });
     }
@@ -140,6 +172,7 @@ public class Cadastro extends AppCompatActivity {
                 case GALLERY_REQUEST_CODE:
                     //data.getData returns the content URI for the selected Image
                     Uri selectedImage = data.getData();
+                    image = selectedImage;
                     String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
                     Cursor cursor = getContentResolver().query(selectedImage,
