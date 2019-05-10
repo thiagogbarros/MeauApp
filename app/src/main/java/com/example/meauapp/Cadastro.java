@@ -137,7 +137,7 @@ public class Cadastro extends AppCompatActivity {
         // Create a storage reference from our app
         StorageReference storageRef = storage.getReference();
         //Uri file = Uri.fromFile(new File("path/to/images/rivers.jpg"));
-        StorageReference riversRef = storageRef.child("images/"+file.getLastPathSegment());
+        StorageReference riversRef = storageRef.child("Perfil/"+file.getLastPathSegment());
         UploadTask uploadTask = riversRef.putFile(file);
 
         // Register observers to listen for when the download is done or if it fails

@@ -1,9 +1,14 @@
 package com.example.meauapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -15,8 +20,13 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 
@@ -32,6 +42,8 @@ public class CadastroAnimal extends AppCompatActivity {
     private Animal animal;
     private ArrayList<String> Temperamento,Saude, Exigencias;
     // int Acao=0; //1-adocao, 2- apadrinhacao, 3 - ajuda
+    private static final int GALLERY_REQUEST_CODE = 1;
+    public  Uri image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,12 +80,21 @@ public class CadastroAnimal extends AppCompatActivity {
         final CheckBox ummes = (CheckBox) findViewById(R.id.ummes);
         final CheckBox tresmeses = (CheckBox) findViewById(R.id.tresmeses);
         final CheckBox seismeses= (CheckBox) findViewById(R.id.seismeses);
+        final Button FotodoAnimal = (Button) findViewById(R.id.Fotodo
+                Animal);
 
         reff = FirebaseDatabase.getInstance().getReference().child("Animal");
         animal = new Animal();
         Temperamento = new ArrayList<>(6);
         Saude = new ArrayList<>(4);
         Exigencias = new ArrayList<>(5);
+
+        FotodoAnimal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pickFromGallery();
+            }
+        });
 
         toggle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -105,6 +126,8 @@ public class CadastroAnimal extends AppCompatActivity {
                 }
             }
         });
+
+
         Colocar_para_Adocao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -180,6 +203,7 @@ public class CadastroAnimal extends AppCompatActivity {
                 animal.setDoencas(Doencas_animal.getText().toString().trim());
                 animal.setSobreAnimal(SobreaAnimal.getText().toString().trim());
 
+                includesForUploadFiles(image);
                 reff.push().setValue(animal);
 
                 Context context = getApplicationContext();
@@ -191,6 +215,62 @@ public class CadastroAnimal extends AppCompatActivity {
                 startActivity(new Intent(CadastroAnimal.this,Introducao.class));
             }
         });
+    }
+    public void includesForUploadFiles(Uri file){
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+
+        // [START upload_create_reference]
+        // Create a storage reference from our app
+        StorageReference storageRef = storage.getReference();
+        //Uri file = Uri.fromFile(new File("path/to/images/rivers.jpg"));
+        StorageReference riversRef = storageRef.child("Animais/"+file.getLastPathSegment());
+        UploadTask uploadTask = riversRef.putFile(file);
+
+        // Register observers to listen for when the download is done or if it fails
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                // ...
+            }
+        });
+    }
+    private void pickFromGallery(){
+        //Create an Intent with action as ACTION_PICK
+        Intent intent=new Intent(Intent.ACTION_PICK);
+        // Sets the type as image/*. This ensures only components of type image are selected
+        intent.setType("image/*");
+        //We pass an extra array with the accepted mime types. This will ensure only components with these MIME types as targeted.
+        String[] mimeTypes = {"image/jpeg", "image/png"};
+        intent.putExtra(Intent.EXTRA_MIME_TYPES,mimeTypes);
+        // Launching the Intent
+        startActivityForResult(intent,GALLERY_REQUEST_CODE);
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        // Result code is RESULT_OK only if the user selects an Image
+        if (resultCode == Activity.RESULT_OK)
+            switch (requestCode){
+                case GALLERY_REQUEST_CODE:
+                    //data.getData returns the content URI for the selected Image
+                    Uri selectedImage = data.getData();
+                    image = selectedImage;
+                    String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+                    Cursor cursor = getContentResolver().query(selectedImage,
+                            filePathColumn, null, null, null);
+                    cursor.moveToFirst();
+
+                    int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                    String picturePath = cursor.getString(columnIndex);
+                    cursor.close();
+                    break;
+            }
+
     }
 
 }
