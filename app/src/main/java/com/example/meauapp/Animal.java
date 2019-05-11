@@ -1,12 +1,47 @@
 package com.example.meauapp;
 
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 
 public class Animal {
-    private String NomeAnimal, Especie, Sexo, Idade,Porte, Doencas, SobreAnimal;
+    private String NomeAnimal, Especie, Sexo, Idade,Porte, Doencas, SobreAnimal, idDono,fotoanimal;
     private ArrayList<String> Temperamento,Saude, Exigencias;
+    private Boolean adocao,adotado;
     public Animal() {
 
+    }
+
+    public String getIdDono() {
+        return idDono;
+    }
+
+    public String getFotoanimal() {
+        return fotoanimal;
+    }
+
+    public void setFotoanimal(String fotoanimal) {
+        this.fotoanimal = fotoanimal;
+    }
+
+    public Boolean getAdotado() {
+        return adotado;
+    }
+
+    public void setAdotado(Boolean adotado) {
+        this.adotado = adotado;
+    }
+
+    public Boolean getAdocao() {
+        return adocao;
+    }
+
+    public void setAdocao(Boolean adocao) {
+        this.adocao = adocao;
+    }
+
+    public void setIdDono(String idDono) {
+        this.idDono = idDono;
     }
 
     public String getNomeAnimal() {
