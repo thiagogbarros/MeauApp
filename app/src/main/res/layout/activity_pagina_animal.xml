@@ -78,6 +78,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgAnimal">
 
@@ -186,8 +187,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="LOCALIZAÇÃO"
-                android:textSize="12sp"
                 android:textColor="#f7a800"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
@@ -206,7 +207,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="32dp"
-                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView9">
@@ -216,10 +216,200 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="CASTRADO"
+                    android:textColor="#f7a800"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/titulo_vermifugado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="96dp"
+                    android:text="VERMIFUGADO"
+                    android:textColor="#f7a800"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+
+                >
+
+                <TextView
+                    android:id="@+id/info_castrado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Não"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/info_vermifugado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="136dp"
+                    android:text="Sim"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+                <TextView
+                    android:id="@+id/titulo_vacinado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VACINADO"
+                    android:textColor="#f7a800"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/titulo_doencas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="96dp"
+                    android:text="DOENÇAS"
+                    android:textColor="#f7a800"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+
+                >
+
+                <TextView
+                    android:id="@+id/info_vacinado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Não"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/info_doencas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="136dp"
+                    android:text="Nenhuma"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/titulo_temperamento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="TEMPERAMENTO"
+                android:textColor="#f7a800"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/info_temperamento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Calmo e dócil"
+                android:textColor="#757575"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/titulo_exigencias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="EXIGÊNCIAS DO DOADOR"
+                android:textColor="#f7a800"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/info_exigencias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:text="Termo de adoção, fotos da casa, visita prévia e\n
+acompanhamento durante três meses"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/titulo_sobre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="MAIS SOBRE BIDU"
+                android:textColor="#f7a800"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/info_sobre"
+                android:layout_width="384dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:text="Bidu é um cão muito dócil e de fácil convivência.\n
+Adora caminhadas e se dá muito bem com\n
+crianças. Tem muito medo de raios e de chuva,\n
+nesses momentos ele requer mais atenção. Está\n
+disponível para adoção pois eu e minha família o\n
+encontramos na rua e não podemos mantê-lo em\n
+nossa casa."
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titulo_sobre" />
+
+            <Button
+                android:id="@+id/btn_adotar"
+                android:layout_width="232dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:backgroundTint="#fdcf58"
+                android:text="PRETENDO ADOTAR"
+                android:textColor="#434343"
+                android:layout_marginTop="28dp"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </LinearLayout>
     </ScrollView>

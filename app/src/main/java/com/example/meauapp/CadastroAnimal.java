@@ -80,8 +80,7 @@ public class CadastroAnimal extends AppCompatActivity {
         final CheckBox ummes = (CheckBox) findViewById(R.id.ummes);
         final CheckBox tresmeses = (CheckBox) findViewById(R.id.tresmeses);
         final CheckBox seismeses= (CheckBox) findViewById(R.id.seismeses);
-        final Button FotodoAnimal = (Button) findViewById(R.id.Fotodo
-                Animal);
+        final Button FotodoAnimal = (Button) findViewById(R.id.FotodoAnimal);
 
         reff = FirebaseDatabase.getInstance().getReference().child("Animal");
         animal = new Animal();
