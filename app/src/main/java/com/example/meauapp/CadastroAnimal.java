@@ -19,9 +19,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -39,11 +40,15 @@ public class CadastroAnimal extends AppCompatActivity {
     private CheckBox Bricalhao, timido, calmo, guarda, amoroso, preguiçoso, vacinado, vermifugado, castrado, doente;
     private CheckBox Termo_adocao,Fotocasa, Visita, Acompanhamento, ummes,tresmeses, seismeses;
     private DatabaseReference reff;
+    private FirebaseUser user;
     private Animal animal;
+    private Boolean adocao=false,adotado=false;
+    public  Uri image;
     private ArrayList<String> Temperamento,Saude, Exigencias;
+    private String imageURL;
     // int Acao=0; //1-adocao, 2- apadrinhacao, 3 - ajuda
     private static final int GALLERY_REQUEST_CODE = 1;
-    public  Uri image;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +92,7 @@ public class CadastroAnimal extends AppCompatActivity {
         Temperamento = new ArrayList<>(6);
         Saude = new ArrayList<>(4);
         Exigencias = new ArrayList<>(5);
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
         FotodoAnimal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +105,8 @@ public class CadastroAnimal extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     buttonView.setBackgroundColor(Color.parseColor("#ffd358"));
-                    //Acao = 1;
+                    adocao=true;
+                    adotado=false;
                 } else {
                     buttonView.setBackgroundColor(Color.parseColor("#bdbdbd"));
                 }
@@ -201,8 +208,29 @@ public class CadastroAnimal extends AppCompatActivity {
                 animal.setSaude(Saude);
                 animal.setDoencas(Doencas_animal.getText().toString().trim());
                 animal.setSobreAnimal(SobreaAnimal.getText().toString().trim());
-
+                animal.setIdDono(user.getUid());
+                //Animal esta para adoção mas não esta adotado
+                animal.setAdocao(adocao);
+                animal.setAdotado(adotado);
+                //Foto do animal
                 includesForUploadFiles(image);
+
+                FirebaseStorage storage = FirebaseStorage.getInstance();
+                StorageReference storageRef = storage.getReference();
+                StorageReference Ref = storageRef.child("Animais/"+image.getLastPathSegment());
+                storageRef.child("Animais/"+image.getLastPathSegment()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        imageURL = uri.toString();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle any errors
+                    }
+                });
+
+                animal.setFotoanimal(imageURL);
                 reff.push().setValue(animal);
 
                 Context context = getApplicationContext();
@@ -222,8 +250,8 @@ public class CadastroAnimal extends AppCompatActivity {
         // Create a storage reference from our app
         StorageReference storageRef = storage.getReference();
         //Uri file = Uri.fromFile(new File("path/to/images/rivers.jpg"));
-        StorageReference riversRef = storageRef.child("Animais/"+file.getLastPathSegment());
-        UploadTask uploadTask = riversRef.putFile(file);
+        StorageReference Ref = storageRef.child("Animais/"+file.getLastPathSegment());
+        UploadTask uploadTask = Ref.putFile(file);
 
         // Register observers to listen for when the download is done or if it fails
         uploadTask.addOnFailureListener(new OnFailureListener() {

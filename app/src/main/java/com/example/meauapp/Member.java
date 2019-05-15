@@ -1,10 +1,18 @@
 package com.example.meauapp;
 
 public class Member {
-    private String Nome, Email, Estado, Cidade, Endereco, Telefone, Nome_Usuario, Senha, Confirmacao_Senha;
+    private String Nome, Email, Estado, Cidade, Endereco, Telefone, Nome_Usuario, Senha, Confirmacao_Senha,FotoPerfil;
     private Integer Idade;
     public Member() {
 
+    }
+
+    public String getFotoPerfil() {
+        return FotoPerfil;
+    }
+
+    public void setFotoPerfil(String fotoPerfil) {
+        FotoPerfil = fotoPerfil;
     }
 
     public String getNome() {
