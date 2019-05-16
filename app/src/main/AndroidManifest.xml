@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdocaoSucesso"></activity>
+        <activity android:name=".AdocaoSolicitacao"></activity>
+        <activity android:name=".AdocaoSucesso" />
         <activity android:name=".PaginaAnimal" />
         <activity android:name=".CadastroAnimal" />
         <activity android:name=".Cadastro" />
