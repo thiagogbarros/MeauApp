@@ -52,6 +52,8 @@ public class Introducao extends AppCompatActivity {
                     Intent intent = new Intent(Introducao.this,Login.class);
                     startActivity(intent);
                 }
+                //Intent intent = new Intent(Introducao.this,Adotar.class);
+                //startActivity(intent);
             }
         });
         }

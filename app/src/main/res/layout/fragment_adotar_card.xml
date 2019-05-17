@@ -113,7 +113,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topBar"
         android:clickable="true"
-        android:onClick="ImageClick"
-        app:srcCompat="@drawable/dog_image" />
+            app:srcCompat="@drawable/dog_image" />
 
 </android.support.constraint.ConstraintLayout>

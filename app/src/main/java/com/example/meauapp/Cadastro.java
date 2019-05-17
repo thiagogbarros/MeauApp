@@ -120,7 +120,7 @@ public class Cadastro extends AppCompatActivity {
                 cadastro(email,senha);
                 includesForUploadFiles(image);
 
-                FirebaseStorage storage = FirebaseStorage.getInstance();
+                /*FirebaseStorage storage = FirebaseStorage.getInstance();
                 StorageReference storageRef = storage.getReference();
                 StorageReference Ref = storageRef.child("Perfil/"+image.getLastPathSegment());
                 storageRef.child("Perfil/"+image.getLastPathSegment()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -135,7 +135,7 @@ public class Cadastro extends AppCompatActivity {
                     }
                 });
 
-                member.setFotoPerfil(imageURL);
+                member.setFotoPerfil(imageURL);*/
                 reff.push().setValue(member);
 
                 Context context = getApplicationContext();

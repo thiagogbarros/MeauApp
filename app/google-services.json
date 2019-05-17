@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "604794011828-5k3i3aa30e9s0jr77c9141mr4b1u3q0n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.meauapp",
+            "certificate_hash": "51e6b964547b83d83f271aa7b19b8e11aef3b20e"
+          }
+        },
+        {
           "client_id": "604794011828-6lr62n5uc716akpq1gn13uf5a692rg27.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
